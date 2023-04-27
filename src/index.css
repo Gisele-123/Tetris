@@ -6,7 +6,7 @@
   --border-left-color: rgba(255,255,255,0.20);
   --border-top-color:rgba(255,255,255,0.33);
   --border-right-color:rgba(0,0,0,0.15);
-  --border-bottom-color: rgba(0,0,0,0.5)
+  --border-bottom-color: rgba(0,0,0,0.5);
   --color-0: #eaeaea;
   --color-1: #ff6600;
   --color-2: #eec900;
@@ -76,4 +76,13 @@
   display: grid;
   grid-template-columns: repeat(4,var(--tile-size));
   align-self: flex-start;
+}
+.score-board-button{
+  display: block;
+  padding: 1em;
+  border-width: 5px;
+  border-top-color: var(--button-color-t);
+  border-left-color: var(--button-color-l);
+  border-right-color: var(--button-color-r);
+  border-bottom-color: var(--button-color-b);
 }
