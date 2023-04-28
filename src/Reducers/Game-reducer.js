@@ -8,8 +8,9 @@ import{
     PAUSE,
     GAME_OVER
 } from '../Actions'
+import { defaultState } from '../utils';
 
-const gameReducer=(state={}, action)=>{
+const gameReducer=(state=defaultState(), action)=>{
     switch (action.type){
             case MOVE_DOWN:
                 return state;
