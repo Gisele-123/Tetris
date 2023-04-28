@@ -78,6 +78,9 @@
   grid-template-columns: repeat(4,var(--tile-size));
   align-self: flex-start;
   grid-area: 1;
+  position: relative;
+  right: 500px;
+  top: 150px;
 }
 .score-board-button{
   display: block;
@@ -107,13 +110,16 @@
 .score-board{
   grid-area: r;
 }
+button{
+  cursor: pointer;
+}
 .controls{
   grid-area: b;
   display: flex;
   flex-direction: row;
 }
 .control-button{
-  --size: calc(var(--tile-size) * 2.5);
+  --size: calc(var(--tile-size) * 3.5);
   width: var(--size);
   height: var(--size);
   text-align: center;
@@ -123,4 +129,17 @@
   border-left-color: var(--button-color-l);
   border-right-color: var(--button-color-r);
   border-bottom-color: var(--button-color-b);
+}
+.message-popup{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: calc(var(--tile-size)*10);
+  height: calc(var(--tile-size)*10);
+  background-color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+.message-popup.hidden{
+  display: none;
 }
