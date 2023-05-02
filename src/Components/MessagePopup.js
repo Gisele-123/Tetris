@@ -9,7 +9,7 @@ export default function MessagePopup(props){
       if (gameOver){
         message='Game over'
         isHidden=''
-      }else if(!isRunning){
+      }else if(isRunning){
         message='Paused'
         isHidden=''
       }
