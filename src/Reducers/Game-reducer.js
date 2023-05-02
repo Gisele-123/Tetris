@@ -23,13 +23,22 @@ const gameReducer=(state=defaultState(), action)=>{
                 if(canMoveTo(shape, grid, x, maybeY, rotation)){
                     return{...state, y:maybeY}
                 }
-                const newGrid=addBlockToGrid(shape, grid, x, rotation)
-                const newState=defaultState()
+                const obj=addBlockToGrid(shape,grid,x,y,rotation)
+                const newGrid=obj.grid
+                const gameOver=obj.gameOver
+                if(gameOver){
+                const newState={...state}
                 newState.grid=newGrid;
-                newState.shape=nextShape;
-                newState.nextShape=randomShape()
+                newState.shape=0;
+                }
+                const newState=defaultState()
+                newState.shape=nextShape
+                newState.grid=newGrid
                 newState.score=score
                 newState.isRunning=isRunning
+
+                newState.score=score+checkRows(newGrid)
+                
                 if(!canMoveTo(nextShape, newGrid, 0, 4, 0)){
                     console.log("Game should be over...")
                     newState.shape=0

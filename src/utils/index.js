@@ -158,16 +158,22 @@ export const randomShape=()=>{
    return true;
  }
 
- export const addBlockToGrid=(shape, grid, x,y, rotation)=>{ 
+ export const addBlockToGrid=(shape, grid, x, y, rotation)=>{ 
+  let blockOffGrid=false
   const block=shapes[shape][rotation]
   const newGrid=[...grid]
   for(let row=0; row<block.length;row++){
     for(let col=0; col<block[row].length;col++){
       if(block[row][col]){
-        newGrid[row+y][col+x]=shape;
+        const yIndex=row+y
+        if(yIndex<0){
+          blockOffGrid=true
+        }else{
+          newGrid[row+y][col+x]=shape;
+        }
       }
     }
-    return newGrid;
+    return {grid: newGrid,gameOver:blockOffGrid};
   }
  }
 
