@@ -57,7 +57,7 @@ const gameReducer=(state=defaultState(), action)=>{
             }
                 return state;
             case RESTART:
-                return state;
+                return defaultState();
             case RESUME:
                 return {...state, isRunning: true};
             case PAUSE:
